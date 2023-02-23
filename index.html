@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://unpkg.com/feather-icons"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;700&display=swap" rel="stylesheet" />
+    <link href="index.css" rel="stylesheet" />
+    <title>My Website</title>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav>
+      <div class="navbar">
+        <div class="nav-logo">
+          <a href="#" id="logo"><i data-feather="coffee"></i>COFFSHOP</a>
+        </div>
+        <div class="nav-navbar">
+          <a href="#">Home</a>
+          <a href="profile.html">Profile</a>
+          <a href="#content">Jenis</a>
+          <a href="#contact">Contact Me</a>
+        </div>
+      </div>
+    </nav>
+    <!-- Navbar End -->
+
+    <!-- Header -->
+    <section class="hero" id="home">
+      <main class="header">
+        <h1>Hi <span id="nama"></span>, Welcome to Coffe Shop</h1>
+        <p>Kopi aja bikin deg-degan, apalagi kamu.</p>
+      </main>
+    </section>
+    <!-- Header End-->
+
+    <!-- Content -->
+    <section id="content" class="jenis">
+      <h2>Jenis Kopi</h2>
+      <p>Kopi memang memiliki banyak sekali varietasnya. Namun, secara umum biji kopi ini terbagi menjadi tiga yakni biji kopi arabika, biji kopi robusta, dan biji kopi liberika atau ekselsa.</p>
+      <div class="row">
+        <div class="menu-card">
+          <img src="img/arabica.png" alt="Arabica" />
+          <p class="menu-title">Arabica</p>
+        </div>
+        <div class="menu-card">
+          <img src="img/robusta.png" alt="robusta" />
+          <p class="menu-title">Robusta</p>
+        </div>
+        <div class="menu-card">
+          <img src="img/liberica.png" alt="liberica" />
+          <p class="menu-title">Liberica</p>
+        </div>
+      </div>
+    </section>
+    <!-- Content End-->
+
+    <!-- Contact Me -->
+    <section id="contact" class="contact">
+      <h2>Contact Me</h2>
+
+      <div class="row">
+        <form name="message-form" onsubmit="return false">
+          <div class="input-group">
+            <label class="label">Nama</label> : &ThinSpace;
+            <div class="textbox">
+              <input type="text" name="full-name" placeholder="Nama" />
+            </div>
+          </div>
+          <div class="input-group">
+            <label class="label">Tanggal Lahir</label> : &ThinSpace;
+            <div class="textbox">
+              <input type="date" name="birthday" />
+            </div>
+          </div>
+          <div class="input-group">
+            <label class="label">Jenis Kelamin</label> : &ThinSpace;
+            <div class="textbox">
+              <div>
+                <input type="radio" name="gender" id="male" value="Laki-laki" />
+                <label class="label" for="">Laki-laki</label>
+              </div>
+              <div>
+                <input type="radio" name="gender" id="female" value="Perempuan" />
+                <label class="label" for="">Perempuan</label>
+              </div>
+            </div>
+          </div>
+          <div class="input-group">
+            <label class="label">Pesan</label> : &ThinSpace;
+            <div class="textbox">
+              <textarea name="messages" id="" cols="30" rows="3" placeholder="Pesan"></textarea>
+            </div>
+          </div>
+          <input type="button" value="Submit" onclick="validateForm()" />
+        </form>
+
+        <div class="isi">
+          <p>Current Time : <span id="date"></span> <span id="clock"></span></p>
+          <br />
+          <p>Nama : <span id="sender-full-name"></span></p>
+          <p>Tanggal Lahir : <span id="sender-birthday"></span></p>
+          <p>Jenis Kelamin : <span id="sender-gender"></span></p>
+          <p>Pesan : <span id="sender-messages"></span></p>
+        </div>
+      </div>
+      <p class="support-logo">Support By <img src="https://storage.googleapis.com/danacita-website-v3-prd/website_v3/images/Revou-alasan.original.png" /></p>
+    </section>
+    <!-- Contact Me End-->
+
+    <!-- Footer -->
+    <footer>
+      <p>Copyright by ilhmbgus</p>
+    </footer>
+    <!-- Footer End-->
+
+    <!-- Javascript -->
+    <script>
+      //content nama
+      let nama = prompt("Masukkan nama anda!");
+      document.getElementById("nama").innerText = nama;
+
+      function validateForm() {
+        const name = document.forms["message-form"]["full-name"].value;
+        const date = document.forms["message-form"]["birthday"].value;
+        const gender = document.forms["message-form"]["gender"].value;
+        const message = document.forms["message-form"]["messages"].value;
+
+        document.getElementById("sender-full-name").innerHTML = name;
+        document.getElementById("sender-birthday").innerHTML = date;
+        document.getElementById("sender-gender").innerText = gender;
+        document.getElementById("sender-messages").innerHTML = message;
+
+        if (name == "" || date == "" || gender == "" || messages == "") {
+          alert("Tidak boleh ada yang kosong");
+          return;
+        }
+      }
+
+      // Icon
+      feather.replace();
+
+      // Tanggal
+      var months = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"];
+      var myDays = ["Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jum&#39;at", "Sabtu"];
+      var date = new Date();
+      var day = date.getDate();
+      var month = date.getMonth();
+      var thisDay = date.getDay(),
+        thisDay = myDays[thisDay];
+      var yy = date.getYear();
+      var year = yy < 1000 ? yy + 1900 : yy;
+      document.getElementById("date").innerHTML = thisDay + " " + day + " " + months[month] + " " + year;
+
+      // Jam
+      function showTime() {
+        var a_p = "";
+        var today = new Date();
+        var curr_hour = today.getHours();
+        var curr_minute = today.getMinutes();
+        var curr_second = today.getSeconds();
+        if (curr_hour < 12) {
+          a_p = "AM";
+        } else {
+          a_p = "PM";
+        }
+        if (curr_hour == 0) {
+          curr_hour = 12;
+        }
+        if (curr_hour > 12) {
+          curr_hour = curr_hour - 12;
+        }
+        curr_hour = checkTime(curr_hour);
+        curr_minute = checkTime(curr_minute);
+        curr_second = checkTime(curr_second);
+        document.getElementById("clock").innerHTML = curr_hour + ":" + curr_minute + ":" + curr_second + " " + a_p;
+      }
+
+      function checkTime(i) {
+        if (i < 10) {
+          i = "0" + i;
+        }
+        return i;
+      }
+      setInterval(showTime, 500);
+    </script>
+
+    <!-- Javascript End-->
+  </body>
+</html>

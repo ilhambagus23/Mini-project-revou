@@ -1,0 +1,128 @@
+:root {
+  --nav: #e2bf81;
+  --bg: #fff;
+  --font: #ffa;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  text-decoration: none;
+  border: none;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+/* NAVBAR */
+.navbar {
+  align-items: center;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--nav);
+  padding: 1.4rem 7%;
+  z-index: 9999;
+}
+
+.nav-logo {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.nav-logo a {
+  color: black;
+  margin-left: 0.5rem;
+}
+
+.nav-logo svg {
+  margin-right: 1rem;
+}
+
+.navbar .nav-navbar a {
+  color: black;
+  display: inline-block;
+  font-size: 1.3rem;
+  margin: 0 1rem;
+}
+
+.navbar .nav-navbar a:hover {
+  color: var(--font);
+}
+
+.navbar .nav-navbar a::after {
+  content: "";
+  display: block;
+  padding-bottom: 0.5rem;
+  border-bottom: 0.1rem solid var(--font);
+  transform: scaleX(0);
+  transition: 0.2s linear;
+}
+
+.navbar .nav-navbar a:hover::after {
+  transform: scaleX(0.5);
+}
+
+/* Navbar End */
+
+/* Media transision */
+
+/* Laptop */
+@media (max-width: 1366px) {
+  html {
+    font-size: 75%;
+  }
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+  html {
+    font-size: 62.5%;
+  }
+}
+
+/* Hp */
+@media (max-width: 450px) {
+  html {
+    font-size: 55%;
+  }
+}
+
+/* Visi - Misi */
+
+.profile {
+  padding: 8rem 7% 1.4rem;
+  height: 60rem;
+}
+
+.profile h1 {
+  text-align: center;
+  font-size: 2.6rem;
+  margin-bottom: 1rem;
+}
+
+.profile .profile-card {
+  display: flex;
+  margin-top: 5rem;
+  justify-content: center;
+}
+
+.profile .vm-img {
+  text-align: center;
+}
+
+.profile .vm-img img {
+  border-radius: 30%;
+  width: 70%;
+  height: 70%;
+}
+.profile .vm-img p {
+  font-size: 1.2rem;
+}
